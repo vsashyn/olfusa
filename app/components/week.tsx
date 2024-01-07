@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const Week = (props: Props) => {
-  return(<div className={cn("w-8 h-8", props.current ? "bg-emerald-400" : "bg-slate-300")}>
+  return(<div className={cn("w-8 h-8 shadow-md border-slate-200 rounded-sm", props.current ? "bg-emerald-400" : "bg-slate-300")}>
     </div>
     )
 }
