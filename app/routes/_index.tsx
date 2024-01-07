@@ -1,41 +1,27 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Week } from "~/components/week";
+import { getWeeks } from "~/services/dates";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Olfusa" },
+    { name: "description", content: "Plan you initiatives easily!" },
   ];
 };
 
 export default function Index() {
+  const weeks = getWeeks();
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+      <h1>Welcome to Olfusa - your planning board! Week starts from Monday</h1>
+      <div className="flex flex-row flex-wrap">
+      {weeks.map(week => {
+        return (
+          <div key={week.index} className="m-1">
+            <Week current={week.current}></Week>
+          </div>)
+      })}
+      </div>
     </div>
   );
 }
