@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 type Props = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 const Input = (props: Props) => {
   return (
     <input
